@@ -1,5 +1,6 @@
 import "./styles.css";
 import { Component } from "react";
+
 export default class NavBar extends Component {
   render() {
     return (
@@ -7,10 +8,10 @@ export default class NavBar extends Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
           <div className="container-fluid">
             <a className="navbar-brand" href="/#">
-              My App
+              eCommerce
             </a>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
