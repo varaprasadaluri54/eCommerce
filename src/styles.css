@@ -21,3 +21,7 @@
 .hand-icon {
   cursor: pointer;
 }
+.nav-brand {
+  text-decoration: none;
+  color: wheat;
+}

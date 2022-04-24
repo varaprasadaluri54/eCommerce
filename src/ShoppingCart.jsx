@@ -4,20 +4,13 @@ import Product from "./Product";
 
 export default class ShoppingCart extends Component {
   state = {
-    products: [
-      { id: 1, productName: "iphone", price: 8900, quantity: 0 },
-      { id: 2, productName: "sony", price: 4500, quantity: 0 },
-      { id: 3, productName: "Samsung", price: 7745, quantity: 0 },
-      { id: 4, productName: "nokia", price: 8845, quantity: 0 },
-      { id: 5, productName: "Xbox", price: 7740, quantity: 0 },
-      { id: 6, productName: "mi", price: 1000, quantity: 0 }
-    ]
+    products: []
   };
 
   render() {
     // console.table(this.state.products)
     return (
-      <div className="container-fluid">
+      <div>
         <h4>shopping cart</h4>
         <div className="row">
           {this.state.products.map((prod) => {
@@ -37,6 +30,19 @@ export default class ShoppingCart extends Component {
       </div>
     );
   }
+
+  componentDidMount = async () => {
+    var response = await fetch(
+      "https://api.jsonbin.io/b/6265575738be296761f769fc/2",
+      {
+        method: "GET"
+      }
+    );
+    var prods = await response.json();
+    console.log(prods);
+    this.setState({ products: prods });
+  };
+
   handleIncrement = (product, maxValue) => {
     let allProducts = [...this.state.products];
     let index = allProducts.indexOf(product);

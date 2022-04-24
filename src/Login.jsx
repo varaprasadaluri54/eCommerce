@@ -8,7 +8,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="col-lg-9">
+      <div>
         <h4 className="m-1 p-2 border-bottom"> Login</h4>
         <div className="form-group form-row">
           <label className="col-lg-4">Email:</label>
@@ -42,12 +42,16 @@ export default class Login extends React.Component {
       </div>
     );
   }
-  onLoginClick = () => {
+
+  onLoginClick = async () => {
     console.log(this.state);
-    if (
-      this.state.email == "admin@test.com" &&
-      this.state.password == "admin123"
-    ) {
+    var response = await fetch(
+      `https://api.jsonbin.io/b/62655cc738be296761f76d76/6?email=${this.state.email}&password=${this.state.password}`,
+      { method: "GET" }
+    );
+    var body = await response.json();
+    console.log(body);
+    if (body.length > 0) {
       this.setState({
         message: <span className="text-success">Successfully Logged-in</span>
       });
@@ -60,3 +64,4 @@ export default class Login extends React.Component {
     }
   };
 }
+// https://api.jsonbin.io/b/62655bd9019db4679690ea2e

@@ -1,5 +1,6 @@
 import "./styles.css";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class NavBar extends Component {
   render() {
@@ -7,9 +8,10 @@ export default class NavBar extends Component {
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/#">
+            <Link className="nav-brand" to="/">
               eCommerce
-            </a>
+            </Link>
+
             <button
               className="navbar-toggler"
               type="button"
@@ -27,9 +29,24 @@ export default class NavBar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/#">
-                    Home
-                  </a>
+                  <Link className="nav-link" to="/">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/customers">
+                    Customers
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/cart">
+                    Shopping Cart
+                  </Link>
                 </li>
               </ul>
             </div>
