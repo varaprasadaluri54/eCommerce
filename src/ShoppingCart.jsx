@@ -15,6 +15,7 @@ export default class ShoppingCart extends Component {
   };
 
   render() {
+    // console.table(this.state.products)
     return (
       <div className="container-fluid">
         <h4>shopping cart</h4>
